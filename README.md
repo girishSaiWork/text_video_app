@@ -20,7 +20,7 @@ A modern web application that generates videos using AI, built with Next.js and 
 Add these to your `.env.local`:
 ```env
 REPLICATE_API_TOKEN=your_replicate_api_token
-
+```
 ## Technologies Used
 
 ### Frontend

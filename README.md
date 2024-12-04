@@ -88,7 +88,7 @@ http://localhost:3000
 ```
 
 ## **Project Structure**
-
+```bash
 video-gen-app/
 ├── app/                    # Next.js app directory
 │   ├── api/               # API routes
@@ -98,6 +98,7 @@ video-gen-app/
 ├── lib/                   # Utility functions
 ├── public/               # Static assets
 └── types/                # TypeScript types
+```
 
-License
+## **License**
 This project is licensed under the MIT License - see the LICENSE file for details.

@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+import { Navbar } from "./components/Navbar";
+import { Toaster } from "sonner";
+import SyncProfile from "@/components/auth/sync-profile";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,11 +29,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
       >
-        {children}
+        <ClerkProvider
+          appearance={{
+            baseTheme: dark,
+            variables: {
+              colorPrimary: "black",
+              colorTextOnPrimaryBackground: "white",
+            },
+            elements: {
+              formButtonPrimary:
+                "bg-black hover:bg-gray-800 text-white",
+              card: "bg-[#1a1a1a]",
+              headerTitle: "text-gray-100",
+              headerSubtitle: "text-gray-400",
+              socialButtonsBlockButton: "bg-[#2d2d2d] border-gray-700 hover:bg-[#2d2d2d]/80",
+              socialButtonsBlockButtonText: "text-gray-300",
+              formFieldLabel: "text-gray-300",
+              formFieldInput: "bg-[#2d2d2d] border-gray-700 text-gray-300",
+              footerActionText: "text-gray-400",
+              footerActionLink: "text-primary hover:text-primary/80",
+            }
+          }}
+        >
+          <Navbar />
+          <SyncProfile />
+          <main className="pt-16">
+            {children}
+          </main>
+          <Toaster theme="dark" position="bottom-right" />
+        </ClerkProvider>
       </body>
     </html>
   );

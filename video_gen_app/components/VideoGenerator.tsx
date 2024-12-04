@@ -69,14 +69,14 @@ export function VideoGenerator() {
         <div className="space-y-4">
           <div>
             <label htmlFor="prompt" className="block text-sm font-medium mb-2">
-              Your Prompt
+              Enter your prompt below
             </label>
             <Textarea
               id="prompt"
-              placeholder="Describe the video you want to generate... (e.g., 'A serene lake at sunset with gentle ripples on the water')"
+              placeholder="Describe the video you want to generate in detail... (e.g., 'A serene lake at sunset with gentle ripples on the water, surrounded by tall pine trees. The sky is painted in warm orange and purple hues, and a few birds fly across the scene.')"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              className="min-h-[120px] resize-y text-base p-4"
+              className="min-h-[200px] resize-y text-base p-4 leading-relaxed"
             />
           </div>
           <Button 
